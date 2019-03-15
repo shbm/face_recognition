@@ -11,8 +11,7 @@ import os
 import sys
 import math
 import pickle
-from sklearn.svm import SVC
-from sklearn.neighbors import KNeighborsClassifier
+from sklearn.linear_model import LogisticRegression
 
 with tf.Graph().as_default():
 
@@ -53,7 +52,8 @@ with tf.Graph().as_default():
 
         # Train classifier
         print('Training classifier')
-        model= KNeighborsClassifier(algorithm='auto', n_neighbors=1, weights='uniform')
+        # model= KNeighborsClassifier(algorithm='auto', n_neighbors=1, weights='uniform')
+        model = LogisticRegression(C=1000, penalty='l2')
         # model = SVC(kernel='linear', probability=True)
 
         # For debuggin purposes
